@@ -1,0 +1,22 @@
+@keyframes photo-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.photo-enter {
+  animation: photo-enter 400ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
