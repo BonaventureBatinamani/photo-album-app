@@ -1,5 +1,13 @@
-export default function Test() {
-    return(
-        <h3>Succesful sign in</h3>
-    )
+import { redirect } from 'next/navigation'
+import { createClient } from '../lib/superbase/server'
+
+export default async function Test() {
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.getUser()
+
+  if (error || !data.user) {
+    redirect('/login')
+  }
+
+  return <h3>Successful sign in</h3>
 }

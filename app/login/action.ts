@@ -22,7 +22,7 @@ export async function login(
   try{
     const {error} = await supabase.auth.signInWithPassword({
       email,
-      password
+      password 
     })
 
     if(error){

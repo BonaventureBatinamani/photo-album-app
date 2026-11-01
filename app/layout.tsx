@@ -31,7 +31,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${fraunces.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-ink text-warm-white font-sans grain-bg">{children}</body>
+      <body className="min-h-full flex flex-col bg-ink text-warm-white font-sans grain-bg"
+             data-new-gr-c-s-check-loaded="9.101.0"
+             data-gr-ext-installed=""
+      >{children}</body>
     </html>
   );
 }
