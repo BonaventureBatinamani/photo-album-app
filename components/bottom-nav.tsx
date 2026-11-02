@@ -1,4 +1,17 @@
+'use client'
+
+import {useActionState }from 'react'
+import { signOut } from '@/app/sign-out/action'
+import type { SignOutState } from '@/app/sign-out/action'
+
 export default function BottomNav() {
+    const initialState: SignOutState = {
+        success: false,
+        message: ''
+    }
+
+    const [, formAction, pending] = useActionState(signOut, initialState);
+
   return (
     <nav
       aria-label="Home"
@@ -89,6 +102,39 @@ export default function BottomNav() {
           </svg>
           <span className="text-xs font-medium">Account</span>
         </button>
+
+        <form action={formAction} className="flex flex-1">
+          <button
+            type="submit"
+            disabled={pending}
+            className="flex w-full flex-col items-center justify-center gap-1 rounded-[6px] py-3 text-muted-text transition-colors hover:text-warm-white active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            <svg
+              aria-hidden="true"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 3V11"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+              <path
+                d="M7.5 6.25C5.35 7.85 4 10.25 4 13C4 17.4 7.6 21 12 21C16.4 21 20 17.4 20 13C20 10.25 18.65 7.85 16.5 6.25"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="text-xs font-medium">
+              {pending ? "Signing out..." : "Sign out"}
+            </span>
+          </button>
+        </form>
       </div>
     </nav>
   );

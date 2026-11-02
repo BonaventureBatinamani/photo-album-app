@@ -32,7 +32,7 @@ export async function login(
       }
     }
 
-    revalidatePath('/test')
+    revalidatePath('/home')
   } catch(e){
     if(e instanceof Error && e.message.includes('NEXT_REDIRECT')){
       throw e
@@ -43,7 +43,7 @@ export async function login(
     }
   }
 
-  redirect('/test')
+  redirect('/home')
 
 
 

@@ -1,4 +1,12 @@
-export default function HomePage() {
+import { createClient } from "@/app/lib/superbase/server";
+import { redirect } from "next/navigation";
+export default async function HomePage() {
+    const supabase = await createClient()
+      const { data, error } = await supabase.auth.getUser()
+    
+      if (error || !data.user) {
+        redirect('/login')
+      }
   return (
     <main className="flex flex-1 flex-col px-4 pt-6 pb-28">
       <div className="mx-auto flex w-full max-w-120 flex-1 flex-col">

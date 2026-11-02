@@ -46,7 +46,7 @@ export async function signUp(
       }
     }
 
-    revalidatePath('/test')
+    revalidatePath('/home')
   } catch (e) {
     if (e instanceof Error && e.message.includes('NEXT_REDIRECT')) {
       throw e
@@ -57,6 +57,6 @@ export async function signUp(
     }
   }
 
-  redirect('/test')
+  redirect('/home')
 }
     
