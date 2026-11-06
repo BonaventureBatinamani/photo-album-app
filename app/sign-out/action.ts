@@ -1,6 +1,6 @@
 "use server"
 
-import { createClient } from '../lib/superbase/server'
+import { createClient } from '../lib/supabase/server'
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
